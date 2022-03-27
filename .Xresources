@@ -1,0 +1,4 @@
+Sxiv.background: #282a36
+!Sxiv.background: #0f111b
+Sxiv.foreground: #bbbbbb
+!Sxiv.foreground: #ecf0c1
