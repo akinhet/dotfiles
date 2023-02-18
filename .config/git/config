@@ -3,5 +3,7 @@
 	email = piti200406@gmail.com
 [pull]
 	rebase = false
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+;[url "ssh://git@github.com/"]
+	;insteadOf = https://github.com/
+[commit]
+	gpgsign = true

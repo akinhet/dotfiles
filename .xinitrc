@@ -50,6 +50,7 @@ setxkbmap pl
 /home/akinhet/git/small-scripts/notifications.sh &
 pulseaudio-equalizer enable &
 lxqt-policykit-agent &
+pcmanfm -d &
 
 (sleep 2 && discord) &
 (sleep 2 && steam) &

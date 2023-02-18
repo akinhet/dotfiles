@@ -16,6 +16,7 @@ call plug#begin()
     Plug 'lambdalisue/suda.vim'
     Plug 'preservim/nerdcommenter'
     Plug 'jiangmiao/auto-pairs'
+	Plug 'mhinz/vim-startify'
 
 " {{ File Managment }}
 	Plug 'preservim/nerdtree'
@@ -36,6 +37,8 @@ call plug#begin()
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
     Plug 'w0rp/ale'
+	Plug 'sophacles/vim-processing'
+	Plug 'wellle/context.vim'
 
 " {{ Colors }}
     Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
@@ -87,6 +90,7 @@ map <C-m> <Esc>:Magit<CR>
 "map <Right> <nop>
 "map <Up> <nop>
 "map <Down> <nop>
+
 
 " << Random stuff >>
 set wrap!                   " wrap lines
@@ -149,21 +153,21 @@ endif
 map " :NERDTreeToggle<CR>
 map <C-t> :FZF<CR>
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 " << CoC >>
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 
 " << ALE >>
@@ -173,7 +177,7 @@ let g:ale_linters = {'python':['flake8','bandit']}  " 'pydocstyle','mypy',
 " << Treesitter >>
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = "maintained",
+	ensure_installed = "all",
 	highlight = {
 		enable = true,
 		}
@@ -196,3 +200,7 @@ let g:pymode_warnings = 0
 let g:suda#prompt = 'Password: '
 
 
+" << Startify >>
+let g:startify_session_before_save = [
+      \ "ContextDisable"
+      \ ]

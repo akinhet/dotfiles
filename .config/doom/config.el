@@ -49,6 +49,9 @@
 (defvaralias 'c-basic-offset 'tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
 
+;; Scroll
+(setq scroll-margin 5)
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
