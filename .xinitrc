@@ -27,5 +27,6 @@ slstatus &
 volumeicon &
 xbanish &
 blueman-applet &
+lxqt-policykit-agent &
 
 exec dwm
