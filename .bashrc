@@ -19,6 +19,8 @@ alias ip='ip --color=auto'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 
+alias config='/usr/bin/git --git-dir=/home/akinhet/.cfg/ --work-tree=/home/akinhet'
+
 export EDITOR="/bin/nvim"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export GIT_PAGER="bat -l gitlog -p --paging=always"
@@ -26,9 +28,6 @@ export MANROFFOPT="-c"
 
 bind "set completion-ignore-case on"
 
-eval "$(jump shell)"
-
-#PS1='[\u@\h \W]\$ '
 PS1='\[\e[1;33m\] \W \$ \[\e[m\]'
 
 kwupload()
@@ -70,4 +69,3 @@ ex ()
 
 
 cal -3m
-alias config='/usr/bin/git --git-dir=/home/akinhet/.cfg/ --work-tree=/home/akinhet'
